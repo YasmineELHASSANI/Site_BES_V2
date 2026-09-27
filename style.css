@@ -1,0 +1,182 @@
+/* ============================
+   Variables
+   ============================ */
+:root {
+  --couleur-fond: #b1e0a1;
+  --couleur-principale: #197957;
+  --couleur-secondaire: #4b9877;
+  --couleur-blanc: #ffffff;
+}
+
+/* ============================
+   Reset
+   ============================ */
+* {
+  box-sizing: border-box; /* * = tous les éléments */
+}
+
+/* ============================
+   Base
+   ============================ */
+body {
+  background-color: var(--couleur-fond);
+  font-family: Verdana, sans-serif;
+  color: var(--couleur-principale);
+}
+
+h1, h2, h3 {
+  font-family: Tahoma, sans-serif;
+}
+
+h1, h2 {
+  color: var(--couleur-principale);
+}
+
+h3 {
+  color: var(--couleur-secondaire);
+}
+
+/* ============================
+   Liens
+   ============================ */
+a {
+  color: var(--couleur-principale);
+  text-decoration: none; /* enlève le soulignement */
+}
+
+a:hover {
+  text-decoration: underline; /* réapparaît seulement au survol */
+}
+
+a:visited {
+  color: var(--couleur-secondaire); /* couleur différente pour un lien déjà cliqué */
+}
+
+/* ============================
+   Header / navigation
+   ============================ */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+/* ============================
+   Page Uni'elles
+   ============================ */
+.page-unielles nav a {
+  color: #c33d2d; /* couleur principale unielles, pour tous les liens */
+}
+
+.page-unielles nav a.actif {
+  color: #f5f7f8; /* couleur secondaire unielles, pour le lien de la page actuelle */
+}
+
+   body.page-unielles {
+  background-color: #ffb8af; /* couleur de fond de la page */
+}
+
+.page-unielles h1,
+.page-unielles h2,
+.page-unielles h3 {
+  color: #c33d2d; /* couleur principale (titres) */
+}
+
+.page-unielles main p,
+.page-unielles main li {
+  color: #f5f7f8; /* couleur secondaire (texte) */
+}
+
+.page-unielles article {
+  border-color: #c33d2d; /* couleur principale unielles */
+}
+
+.page-unielles .filtre-btn {
+  border-color: #c33d2d;
+  color: #c33d2d;
+}
+
+.page-unielles .filtre-btn.actif {
+  background-color: #c33d2d;
+  color: #f5f7f8;
+}
+
+.page-unielles footer {
+  color: #c33d2d; /* couleur principale */
+}
+
+/* ============================
+   Sections / articles
+   ============================ */
+section {
+  margin-bottom: 30px;
+}
+
+article {
+  padding: 2px 15px;
+  border: 1px solid var(--couleur-principale);
+  flex: 1 1 250px; /* grandit/rétrécit, base 250px : cf. note en bas */
+}
+.articles-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* ============================
+   Filtres (boutons)
+   ============================ */
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.filtre-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--couleur-principale);
+  background-color: transparent;
+  color: var(--couleur-principale);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.filtre-btn.actif {
+  background-color: var(--couleur-principale);
+  color: var(--couleur-blanc);
+}
+
+/* ============================
+   Notes
+   ============================
+   Raccourci padding (et margin, ça marche pareil) :
+   1 valeur  -> s'applique aux 4 côtés
+   2 valeurs -> haut/bas puis gauche/droite
+   4 valeurs -> haut, droite, bas, gauche
+
+   Valeur possible pour justify-content :
+    flex-start : aligne à gauche (donc colle au début)
+    flex-end : aligne à droite (donc colle à la fin)
+    center : aligne au centre
+    space-between : répartit l'espace à l'identique entre les éléments
+    space-around : répartit l'espace équitablement autour des éléments
+*/

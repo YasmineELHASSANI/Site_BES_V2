@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BES - Événements</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Logo de l'association" class="logo">
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="evenements.html">Événements</a></li>
+      <li><a href="unielles.html">Uni'Elles</a></li>
+      <li><a href="prevention.html">Prévention</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <div class="filtres">
+    <button class="filtre-btn actif" data-filtre="tous">Tous</button>
+    <button class="filtre-btn" data-filtre="a-venir">À venir</button>
+    <button class="filtre-btn" data-filtre="passe">Passés</button>
+  </div>
+
+  <section id="a-venir" data-categorie="a-venir">
+    <h2>À venir</h2>
+    <div class="articles-wrapper">
+      <article>
+        <h3>Dépôt Ressourcerie</h3>
+        <p>Date : 29 septembre 2026</p>
+        <p>La ressourcerie d'UniLaSalle Amiens ouvre enfin ses portes !<br>Tu as des vêtements, objets ou petites affaires dont tu ne te sers plus ? Ne les laisse pas prendre la poussière ! Donne-leur une seconde vie et fais-en profiter d'autres étudiants.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="passes" data-categorie="passe">
+    <h2>Événements passés</h2>
+    <div class="articles-wrapper">
+      <article>
+        <h3>Cocktail Uni'Elles</h3>
+        <p>Date : 23 septembre 2026</p>
+        <p>Le cocktail Uni'Elles a été un moment de partage et de convivialité pour <strong>toutes les étudiantes et tous les étudiants de l'école</strong>.<br>
+        Nous avons pu échanger sur nos expériences, nos projets et nos aspirations, tout en dégustant des boissons et des amuse-bouches préparés par notre équipe.<br>
+        Merci à <strong>toutes celles et tous ceux</strong> qui ont participé et contribué à la réussite de cet événement !</p>
+      </article>
+      <article>
+        <h3>Don du sang 2025/2026</h3>
+        <p>Dates : 3 février 2026 et 7 avril 2026</p>
+        <p>Cette année <strong>91 dons</strong> du sang ont été collectés. Merci à tous les volontaires !<br>
+        Et n'oubliez pas, le don du sang est un geste simple qui peut <strong>sauver 3 vies</strong>.</p>
+      </article>
+      <article>
+        <h3>Vente de crêpes - Journée des droits des femmes</h3>
+        <p>Date : 8 mars 2026</p>
+        <p>A l'occasion de la journée des droits des femmes, nous avons organisé avec le Bureau des Sports une vente de crêpes. Grâce à votre générosité, <strong>311.90 € ont été récoltés et réversés au CDIFF</strong> : merci à toutes et à tous !</p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Association Bien-Être et Santé<br>
+    Mail : <a href="mailto:bien-etre.amiens@asso.unilasalle.fr">bien-etre.amiens@asso.unilasalle.fr</a><br>
+    Instagram : <a href="https://www.instagram.com/bes_unilasalle_amiens" target="_blank" rel="noopener">@bes_unilasalle_amiens</a>
+  </p>
+</footer>
+
+<script>
+  const boutons = document.querySelectorAll('.filtre-btn');
+  const sections = document.querySelectorAll('section[data-categorie]');
+
+  boutons.forEach(bouton => {
+    bouton.addEventListener('click', () => {
+
+      boutons.forEach(b => b.classList.remove('actif'));
+      bouton.classList.add('actif');
+
+      const filtre = bouton.dataset.filtre;
+
+      sections.forEach(section => {
+        if (filtre === 'tous' || section.dataset.categorie === filtre) {
+          section.style.display = 'block';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+
+    });
+  });
+</script>
+</body>
+</html>

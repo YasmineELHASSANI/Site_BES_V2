@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BES - Uni'Elles</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-unielles">
+
+<header>
+  <div class="logos">
+    <img src="images/logo.png" alt="Logo de l'association" class="logo">
+    <img src="images/logo-unielles.png" alt="Logo Uni'elles" class="logo">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="evenements.html">Événements</a></li>
+      <li><a href="unielles.html">Uni'elles</a></li>
+      <li><a href="prevention.html">Prévention</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <section>
+      <h1>Uni'Elles</h1>
+      <p>Uni'Elles est une initiative de l'association BES pour <strong>promouvoir la place de la femme dans les sciences</strong>. Notre objectif est de porter les couleurs de l'école au <strong>concours Ingénieuses</strong>. Notre volonté est de créer une <strong>unité</strong> et non pas une rivalité entre <strong>les hommes et les femmes</strong>.</p>
+    </section>
+
+    <div class="filtres">
+      <button class="filtre-btn actif" data-filtre="tous">Tous</button>
+      <button class="filtre-btn" data-filtre="evenements-unielles">Événements Uni'elles</button>
+      <button class="filtre-btn" data-filtre="point-culturel">Point culturel</button>
+    </div>
+
+    <section id="evenements-unielles" data-categorie="evenements-unielles">
+      <h2>Événements Uni'elles</h2>
+      <article>
+        <h3>Cocktail Uni'Elles</h3>
+        <p>Date : 23 septembre 2026</p>
+        <p>Le cocktail Uni'Elles a été un moment de partage et de convivialité pour <strong>toutes les étudiantes et tous les étudiants de l'école</strong>.<br>
+        Nous avons pu échanger sur nos expériences, nos projets et nos aspirations, tout en dégustant des boissons et des amuse-bouches préparés par notre équipe.<br>
+        Merci à <strong>toutes celles et tous ceux</strong> qui ont participé et contribué à la réussite de cet événement !</p>
+      </article>
+    </section>
+
+    <section id="point-culturel" data-categorie="point-culturel">
+      <h2>Point culturel</h2>
+      <p>Ici tu retrouveras toutes les informations sur nos points culturels !</p>
+    </section>
+  </main>
+
+<footer>
+  <p>© 2026 Association Bien-Être et Santé<br>
+    Mail : <a href="mailto:bien-etre.amiens@asso.unilasalle.fr">bien-etre.amiens@asso.unilasalle.fr</a><br>
+    Instagram : <a href="https://www.instagram.com/bes_unilasalle_amiens" target="_blank" rel="noopener">@bes_unilasalle_amiens</a>
+  </p>
+</footer>
+
+  <script>
+    const boutons = document.querySelectorAll('.filtre-btn');
+    const sections = document.querySelectorAll('section[data-categorie]');
+
+    boutons.forEach(bouton => {
+      bouton.addEventListener('click', () => {
+
+        boutons.forEach(b => b.classList.remove('actif'));
+        bouton.classList.add('actif');
+
+        const filtre = bouton.dataset.filtre;
+
+        sections.forEach(section => {
+          if (filtre === 'tous' || section.dataset.categorie === filtre) {
+            section.style.display = 'block';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+
+      });
+    });
+  </script>
+
+</body>
+</html>
